@@ -15,6 +15,14 @@ class Day1Test {
         assertEquals(expected, actual)
     }
 
+    @ParameterizedTest
+    @MethodSource("part2")
+    fun part2(input: List<Int>, expected: Int) {
+        val actual = part2(2020, input)
+
+        assertEquals(expected, actual)
+    }
+
     companion object {
         @JvmStatic
         fun part1() = listOf(
@@ -27,7 +35,23 @@ class Day1Test {
                     675,
                     1456,
                 ),
-                514579)
+                514579
+            )
+        )
+
+        @JvmStatic
+        fun part2() = listOf(
+            Arguments.of(
+                listOf(
+                    1721,
+                    979,
+                    366,
+                    299,
+                    675,
+                    1456,
+                ),
+                241861950
+            )
         )
     }
 }

@@ -7,12 +7,15 @@ fun main() {
 
     val part1 = findTargetSum(2020, report)
     println("Part 1: $part1")
+
+    val part2 = part2(2020, report)
+    println("Part 2: $part2")
 }
 
-fun findTargetSum(sum: Int, report: List<Int>): Int? {
+fun findTargetSum(target: Int, report: List<Int>): Int? {
     val seen = mutableSetOf<Int>()
     report.forEach { expense ->
-        val multiplicand = sum - expense
+        val multiplicand = target - expense
 
         if (multiplicand in seen) {
             return expense * multiplicand
@@ -23,3 +26,12 @@ fun findTargetSum(sum: Int, report: List<Int>): Int? {
     return null
 }
 
+fun part2(target: Int, report: List<Int>): Int? {
+    report.forEach { expense ->
+        val multiplicand = findTargetSum(target - expense, report)
+        if (multiplicand != null) {
+            return expense * multiplicand
+        }
+    }
+    return null
+}
