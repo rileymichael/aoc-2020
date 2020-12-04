@@ -12,4 +12,14 @@ object Utils {
 
         return lines
     }
+
+    fun <T> Iterable<T>.split(predicate: (T) -> Boolean) = fold(mutableListOf(mutableListOf<T>())) { acc, e ->
+        if (predicate(e)) {
+            acc.add(mutableListOf())
+        } else {
+            acc.last() += e
+        }
+
+        acc
+    }
 }
