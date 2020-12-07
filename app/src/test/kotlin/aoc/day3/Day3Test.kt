@@ -1,67 +1,35 @@
 package aoc.day3
 
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
+import org.junit.jupiter.api.Test
 
 class Day3Test {
 
-    @ParameterizedTest
-    @MethodSource("part1")
-    fun part1(input: List<String>, expected: Long) {
+    @Test
+    fun part1() {
         val actual = findTreesInPath(input, Pair(3, 1))
-
-        assertEquals(expected, actual)
+        assertEquals(7, actual)
     }
 
-    @ParameterizedTest
-    @MethodSource("part2")
-    fun part2(input: List<String>, expected: Long) {
+    @Test
+    fun part2() {
         val actual = part2(input)
-
-        assertEquals(expected, actual)
+        assertEquals(336, actual)
     }
 
     companion object {
-        @JvmStatic
-        fun part1() = listOf(
-            Arguments.of(
-                listOf(
-                    "..##.......",
-                    "#...#...#..",
-                    ".#....#..#.",
-                    "..#.#...#.#",
-                    ".#...##..#.",
-                    "..#.##.....",
-                    ".#.#.#....#",
-                    ".#........#",
-                    "#.##...#...",
-                    "#...##....#",
-                    ".#..#...#.#",
-                ),
-                7
-            )
-        )
-
-        @JvmStatic
-        fun part2() = listOf(
-            Arguments.of(
-                listOf(
-                    "..##.......",
-                    "#...#...#..",
-                    ".#....#..#.",
-                    "..#.#...#.#",
-                    ".#...##..#.",
-                    "..#.##.....",
-                    ".#.#.#....#",
-                    ".#........#",
-                    "#.##...#...",
-                    "#...##....#",
-                    ".#..#...#.#",
-                ),
-                336
-            )
+        private val input = listOf(
+            "..##.......",
+            "#...#...#..",
+            ".#....#..#.",
+            "..#.#...#.#",
+            ".#...##..#.",
+            "..#.##.....",
+            ".#.#.#....#",
+            ".#........#",
+            "#.##...#...",
+            "#...##....#",
+            ".#..#...#.#",
         )
     }
 }

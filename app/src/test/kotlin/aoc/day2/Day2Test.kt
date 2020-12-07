@@ -1,51 +1,27 @@
 package aoc.day2
 
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
+import org.junit.jupiter.api.Test
 
 class Day2Test {
 
-    @ParameterizedTest
-    @MethodSource("part1")
-    fun part1(input: List<String>, expected: Int) {
+    @Test
+    fun part1() {
         val actual = part1(input)
-
-        assertEquals(expected, actual)
+        assertEquals(2, actual)
     }
 
-    @ParameterizedTest
-    @MethodSource("part2")
-    fun part2(input: List<String>, expected: Int) {
+    @Test
+    fun part2() {
         val actual = part2(input)
-
-        assertEquals(expected, actual)
+        assertEquals(1, actual)
     }
 
     companion object {
-        @JvmStatic
-        fun part1() = listOf(
-            Arguments.of(
-                listOf(
-                    "1-3 a: abcde",
-                    "1-3 b: cdefg",
-                    "2-9 c: ccccccccc",
-                ),
-                2
-            )
-        )
-
-        @JvmStatic
-        fun part2() = listOf(
-            Arguments.of(
-                listOf(
-                    "1-3 a: abcde",
-                    "1-3 b: cdefg",
-                    "2-9 c: ccccccccc",
-                ),
-                1
-            )
+        private val input = listOf(
+            "1-3 a: abcde",
+            "1-3 b: cdefg",
+            "2-9 c: ccccccccc",
         )
     }
 }
