@@ -7,7 +7,7 @@ class Day1Test {
 
     @Test
     fun part1() {
-        val actual = findTargetSum(2020, input)
+        val actual = part1(2020, input)
         assertEquals(514579, actual)
     }
 

@@ -75,7 +75,7 @@ data class Passport(val fields: Map<String, String>) {
         private const val ID = "pid"
         private const val COUNTRY_ID = "cid"
 
-        private val REQUIRED_FIELDS = listOf(
+        private val REQUIRED_FIELDS = setOf(
             BIRTH_YEAR,
             ISSUE_YEAR,
             EXPIRATION_YEAR,
@@ -85,7 +85,7 @@ data class Passport(val fields: Map<String, String>) {
             ID,
         )
 
-        private val EYE_COLORS = listOf(
+        private val EYE_COLORS = setOf(
             "amb", "blu", "brn", "gry", "grn", "hzl", "oth"
         )
     }

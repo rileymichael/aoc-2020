@@ -22,4 +22,29 @@ object Utils {
 
         acc
     }
+
+    @Suppress("Unchecked_cast")
+    fun <T> twoSum(target: T, elements: List<T>): Pair<T, T>? where T: Number, T: Comparable<T> {
+        val seen = mutableSetOf<T>()
+
+        elements.forEach { e ->
+            val compliment = (target - e) as T
+
+            if (compliment in seen) {
+                return Pair(e, compliment)
+            }
+
+            seen.add(e)
+        }
+
+        return null
+    }
+
+    operator fun Number.minus(other: Number): Number {
+        return when (this) {
+            is Long   -> this.toLong() - other.toLong()
+            is Int    -> this.toInt()  - other.toInt()
+            else      -> throw RuntimeException("add this numeric type")
+        }
+    }
 }
